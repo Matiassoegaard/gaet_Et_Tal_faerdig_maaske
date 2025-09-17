@@ -125,20 +125,6 @@ public class Main {
     }
 
 
-    public static boolean wantToPlayAgain(String playAgain) {
-//        Scanner input = new Scanner(System.in);
-//        System.out.println("Ville du spille igen? ");
-//        playAgain = input.next().toLowerCase();
-        switch (playAgain) {
-            case "ja":
-
-                return false;
-            case "nej":
-                return true;
-        }
-        return true;
-    }
-
 
     //Metode der tjekker om gættede var for lavt, højt eller om det var rigtigt.
     public static int checkGuess (int choiceOfAnswer, int secretNumber) {
