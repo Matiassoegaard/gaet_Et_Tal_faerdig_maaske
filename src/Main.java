@@ -3,69 +3,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        Scanner input = new Scanner(System.in);
-//        int choiceOfDifficulty;
-//        int choiceOfAnswer;
-//        int amountOfGuesses = 0;
-//
-//        boolean answer = false;
-//
-//        //Velkomst metoden
-//        welcome();
-//
-//        // Valg af sværhedsgrad
-//        System.out.println("Hvilken sværhedsgrad ville du have? " + "\nNemt tryk: 1" +
-//                                                                    "\nMellem tryk: 2" +
-//                                                                    "\nSvært tryk: 3");
-//        choiceOfDifficulty = input.nextInt();
-//
-//
-//        //Giver Besked om hvilken sværhedsgrad der er valgt.
-//        if (choiceOfDifficulty == 1) {
-//            System.out.println("Jeg har fundet et tal mellem 1 - 10, Prøv at gætte det!");
-//        } else if (choiceOfDifficulty == 2) {
-//            System.out.println("Jeg har fundet et tal mellem 1 - 50, Prøv at gætte det!");
-//        } else if (choiceOfDifficulty == 3) {
-//            System.out.println("Jeg har fundet et tal mellem 1 - 100, Prøv at gætte det!");
-//        }
-//
-//
-//            //Random number generator virker!!!! ayy!!!!
-//
-//        int secretNumber = randomNumberGenerator(gameDifficulty(choiceOfDifficulty));
-//        while (!answer){
-//
-//            dialogWriteAnswer();
-//            choiceOfAnswer = input.nextInt();
-//            amountOfGuesses++;
-//            int result = checkGuess(choiceOfAnswer, secretNumber);
-//
-//            if (result == -1){
-//            } else if (result == 1){
-//            } else if (result == 0){
-//                System.out.println("Du gættede rigtig!!!" +
-//                                    "\nDet hemmelige tal var: " + secretNumber +
-//                                    "\nDu brugte så mange gæt: " + amountOfGuesses);
-//
-//                answer = true;
-//                System.out.println("Ville du spille igen? ");
-//                String playAgain = input.next().toLowerCase();
-//                switch (playAgain) {
-//                    case "ja":
-//                        secretNumber = randomNumberGenerator(gameDifficulty(choiceOfDifficulty));
-//                        answer = false;
-//                        break;
-//                    case "nej": answer = true;
-//                        break;
-//                }
-//
-//            }
-//
-//        }
+
         playGame();
 
     }
 
+    //Denne metode håndterer spillet.
     public static void playGame (){
         Scanner input = new Scanner(System.in);
         int choiceOfDifficulty;
