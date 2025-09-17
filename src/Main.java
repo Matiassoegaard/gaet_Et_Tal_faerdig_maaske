@@ -9,7 +9,7 @@ public class Main {
     }
 
     //Denne metode håndterer spillet.
-    public static void playGame (){
+    public static void playGame() {
         Scanner input = new Scanner(System.in);
         int choiceOfDifficulty;
         int choiceOfAnswer;
@@ -36,16 +36,16 @@ public class Main {
             System.out.println("Jeg har fundet et tal mellem 1 - 100, Prøv at gætte det!");
         }
         int secretNumber = randomNumberGenerator(gameDifficulty(choiceOfDifficulty));
-        while (!answer){
+        while (!answer) {
 
             dialogWriteAnswer();
             choiceOfAnswer = input.nextInt();
             amountOfGuesses++;
             int result = checkGuess(choiceOfAnswer, secretNumber);
 
-            if (result == -1){
-            } else if (result == 1){
-            } else if (result == 0){
+            if (result == -1) {
+            } else if (result == 1) {
+            } else if (result == 0) {
                 System.out.println("Du gættede rigtig!!!" +
                         "\nDet hemmelige tal var: " + secretNumber +
                         "\nDu brugte så mange gæt: " + amountOfGuesses);
@@ -58,7 +58,8 @@ public class Main {
                         secretNumber = randomNumberGenerator(gameDifficulty(choiceOfDifficulty));
                         answer = false;
                         break;
-                    case "nej": answer = true;
+                    case "nej":
+                        answer = true;
                         break;
                 }
 
@@ -68,54 +69,53 @@ public class Main {
     }
 
 
-
     //Metode der tjekker om gættede var for lavt, højt eller om det var rigtigt.
-    public static int checkGuess (int choiceOfAnswer, int secretNumber) {
+    public static int checkGuess(int choiceOfAnswer, int secretNumber) {
         if (choiceOfAnswer < secretNumber) {
             System.out.println("Du gættede for lavt ");
             return -1;
-        } if (choiceOfAnswer > secretNumber) {
+        }
+        if (choiceOfAnswer > secretNumber) {
             System.out.println("Du gættede for højt");
-           return 1;
+            return 1;
         } else
             return 0;
     }
 
 
-
-    public static void welcome(){
+    public static void welcome() {
         System.out.println("Velkommen til spillet: Gæt et Tal" +
-                            "\n-----------------------------------");
+                "\n-----------------------------------");
     }
 
-    public static void dialogWriteAnswer(){
+    public static void dialogWriteAnswer() {
         System.out.println("Skriv dit gæt: ");
     }
 
-    public static void dialogTryAgain(){
+    public static void dialogTryAgain() {
         System.out.println("Desværre prøv igen!\n");
     }
 
 
     //Metode der bestemmer hvilken sværhedsgrad spilleren har valgt.
-    public static int gameDifficulty(int choiceOfDifficulty){
+    public static int gameDifficulty(int choiceOfDifficulty) {
         int maxNumber = 0;
         int choiceOfAnswer;
-        if (choiceOfDifficulty == 1){
+        if (choiceOfDifficulty == 1) {
             return maxNumber = 10;
-        } else if (choiceOfDifficulty == 2){
-            return   maxNumber = 50;
-        } else if (choiceOfDifficulty == 3){
+        } else if (choiceOfDifficulty == 2) {
+            return maxNumber = 50;
+        } else if (choiceOfDifficulty == 3) {
             return maxNumber = 100;
         }
         return maxNumber;
     }
 
     // Metoder der laver et tilfældigt nummer.
-    public static int randomNumberGenerator(int maxNumber){
-      int min = 1;
+    public static int randomNumberGenerator(int maxNumber) {
+        int min = 1;
         Random rand = new Random();
-        return rand.nextInt(maxNumber-min+1)+min;
+        return rand.nextInt(maxNumber - min + 1) + min;
     }
 
 
