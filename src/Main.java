@@ -52,6 +52,8 @@ public class Main {
                 String playAgain = input.next().toLowerCase();
                 switch (playAgain) {
                     case "ja":
+                        //sætter amountOfGuess til 0 så den kan tælle på ny.
+                        amountOfGuesses = 0;
                         dialogChooseDifficulty();
                         choiceOfDifficulty = input.nextInt();
 
