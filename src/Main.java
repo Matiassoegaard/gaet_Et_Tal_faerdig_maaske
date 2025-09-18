@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-
+        //Kalder på playGame Metoden.
         playGame();
 
     }
@@ -14,19 +14,16 @@ public class Main {
         int choiceOfDifficulty;
         int choiceOfAnswer;
         int amountOfGuesses = 0;
-
         boolean answer = false;
 
-        //Velkomst metoden
-        welcome();
+        //Kalder på metode der: Giver en velkomst besked.
+        dialogWelcome();
 
-        // Valg af sværhedsgrad
-        System.out.println("Hvilken sværhedsgrad ville du have? " + "\nNemt tryk: 1" +
-                "\nMellem tryk: 2" +
-                "\nSvært tryk: 3");
+        //Kalder på metoden der: Viser til bruger hvilken muligheder der er for sværhedsgraden.
+        dialogChooseDifficulty();
         choiceOfDifficulty = input.nextInt();
 
-        //Kalder på metoden der giver en besked om valg af sværhedsgraden.
+        //Kalder på metoden der: Giver en besked om hvilken sværhedsgraden der er valgt.
         dialogGameDifficulty(choiceOfDifficulty);
 
         // tildeler "secretNumber" til metoden randomNumberGenerator.
@@ -36,12 +33,14 @@ public class Main {
         while (!answer) {
             //kalder på metode der giver beskeden. "Skriv dit gæt:"
             dialogWriteAnswer();
-            //Brugers gæt.
+            //Brugers inputter gæt.
             choiceOfAnswer = input.nextInt();
+            //Tæller hvor mange gæt der er brugt.
             amountOfGuesses++;
+            //tildeler result til metoden checkGuess
             int result = checkGuess(choiceOfAnswer, secretNumber);
 
-            //gør til metode
+            // If statement der: tjekker hvilket if-statement metoden chechGuess skal vise.
             if (result == -1) {
             } else if (result == 1) {
             } else if (result == 0) {
@@ -53,6 +52,12 @@ public class Main {
                 String playAgain = input.next().toLowerCase();
                 switch (playAgain) {
                     case "ja":
+                        dialogChooseDifficulty();
+                        choiceOfDifficulty = input.nextInt();
+
+                        //Kalder på metoden der: Giver en besked om valg af sværhedsgraden.
+                        dialogGameDifficulty(choiceOfDifficulty);
+                        //Her tildeles secretNumber et nyt tilfældigt tal.
                         secretNumber = randomNumberGenerator(gameDifficulty(choiceOfDifficulty));
                         answer = false;
                         break;
@@ -64,30 +69,6 @@ public class Main {
         }
     }
 
-
-    //Giver Besked om hvilken sværhedsgrad der er valgt.
-    public static void dialogGameDifficulty(int choiceOfDifficulty) {
-        if (choiceOfDifficulty == 1) {
-            System.out.println("Jeg har fundet et tal mellem 1 - 10, Prøv at gætte det!");
-        } else if (choiceOfDifficulty == 2) {
-            System.out.println("Jeg har fundet et tal mellem 1 - 50, Prøv at gætte det!");
-        } else if (choiceOfDifficulty == 3) {
-            System.out.println("Jeg har fundet et tal mellem 1 - 100, Prøv at gætte det!");
-        }
-    }
-
-    public static void welcome() {
-        System.out.println("Velkommen til spillet: Gæt et Tal" +
-                "\n-----------------------------------");
-    }
-
-    public static void dialogWriteAnswer() {
-        System.out.println("Skriv dit gæt: ");
-    }
-
-    public static void dialogTryAgain() {
-        System.out.println("Desværre prøv igen!\n");
-    }
 
 
     //Metode der til deler maxNumber en værdi baseret på hvilken sværhedsgrad spilleren har valgt.
@@ -130,8 +111,39 @@ public class Main {
             return 0;
     }
 
+    //Giver Besked om hvilken sværhedsgrad der er valgt.
+    public static void dialogGameDifficulty(int choiceOfDifficulty) {
+        if (choiceOfDifficulty == 1) {
+            System.out.println("Jeg har fundet et tal mellem 1 - 10, Prøv at gætte det!");
+        } else if (choiceOfDifficulty == 2) {
+            System.out.println("Jeg har fundet et tal mellem 1 - 50, Prøv at gætte det!");
+        } else if (choiceOfDifficulty == 3) {
+            System.out.println("Jeg har fundet et tal mellem 1 - 100, Prøv at gætte det!");
+        }
+    }
 
+    //Metode der: Giver en velkomst besked.
+    public static void dialogWelcome() {
+        System.out.println("\nVelkommen til spillet: Gæt et Tal" +
+                "\n-----------------------------------");
+    }
 
+    //Metode der: Giver besked om mulige sværhedsgrader.
+    public static void dialogChooseDifficulty() {
+        System.out.println("Hvilken sværhedsgrad ville du have? " + "\nNemt tryk: 1" +
+                "\nMellem tryk: 2" +
+                "\nSvært tryk: 3");
+    }
+
+    //Metode der: Giver beskeden "Skriv dit gæt:".
+    public static void dialogWriteAnswer() {
+        System.out.println("Skriv dit gæt: ");
+    }
+
+    //Metode der: giver beskeden "Desværre prøv igen!".
+    public static void dialogTryAgain() {
+        System.out.println("Desværre prøv igen!\n");
+    }
 
 
 }
