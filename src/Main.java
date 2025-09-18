@@ -48,7 +48,7 @@ public class Main {
                         "\nDet hemmelige tal var: " + secretNumber +
                         "\nDu brugte så mange gæt: " + amountOfGuesses);
                 answer = true;
-                System.out.println("Ville du spille igen? ");
+                System.out.println("Ville du spille igen? (Ja eller Nej)");
                 String playAgain = input.next().toLowerCase();
                 switch (playAgain) {
                     case "ja":
