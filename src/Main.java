@@ -5,7 +5,6 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         //Kalder på playGame Metoden.
         playGame();
-
     }
 
     //Denne metode håndterer spillet.
@@ -44,11 +43,11 @@ public class Main {
             if (result == -1) {
             } else if (result == 1) {
             } else if (result == 0) {
-                System.out.println("Du gættede rigtig!!!" +
+                System.out.println("\nDu gættede rigtig!!!" +
                         "\nDet hemmelige tal var: " + secretNumber +
                         "\nDu brugte så mange gæt: " + amountOfGuesses);
                 answer = true;
-                System.out.println("Ville du spille igen? (Ja eller Nej)");
+                System.out.println("\nVille du spille igen? (Ja eller Nej)");
                 String playAgain = input.next().toLowerCase();
                 switch (playAgain) {
                     case "ja":
@@ -100,14 +99,14 @@ public class Main {
 
             System.out.println("Du gættede for lavt ");
             dialogTryAgain();
-            Thread.sleep(800);
+            Thread.sleep(500);
             return -1;
         }
         if (choiceOfAnswer > secretNumber) {
 
             System.out.println("Du gættede for højt");
             dialogTryAgain();
-            Thread.sleep(800);
+            Thread.sleep(500);
             return 1;
         } else
             return 0;
